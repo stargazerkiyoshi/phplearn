@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		姓名：<input type="text" id="username" /><br />
+		年龄：<input type="text" id="age" /><br />
+		图像：<input type="file" id="img" /><br />
+		<button onclick="sub()">提交</button>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		//base64 filereader formdata
+		function sub(){
+			var username=$("#username").val();
+			var age=$("#age").val();
+			var imgFile=$("#img")[0].files[0];
+			console.log(username,age,imgFile);
+			
+			var form =new FormData();
+			form.append("username",username);
+			form.append("age",age);
+			form.append("img",imgFile);
+			$.ajax({
+//				type:"get",
+				type:"post",
+				url:"ajaxform.php",
+				//{name:name}-->name es6
+//				data:{
+//					username,
+//					age
+//				},
+				data:form,
+				async:true,
+				dataType:"json",//json.parse()做json的反编码
+				processData:false,
+				contentType:false,
+				success:function(res){
+//					json.parse();
+					console.log(res);
+				}
+			});
+		}
+	</script>
+</html>

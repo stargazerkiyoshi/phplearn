@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		XMLHttpRequest
+//		ActiveXObject()
+		//es6基于promise封装的ajax;链式写法（回调写法）；
+		fetch("title.html").then((res)=>{
+			console.log("111",res);
+//			return res.json();
+			return res.text();
+		}).then((res)=>{
+			console.log("222",res);
+		}).catch((error)=>{
+			console.log(error);
+		})
+	</script>
+</html>

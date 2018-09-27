@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//箭头语法；es6==ECMAScript2015;
+		//命名函数
+//		function test(){
+//			console.log("test");
+//		}
+//		//匿名函数
+//		var test=function(){
+//			
+//		}
+		
+//		//箭头函数，针对匿名函数的
+//		var test=()=>{
+//			console.log("test");
+//		}
+//		test();
+		
+//		obj={
+//			name:"张三",
+//			age:19,
+//			hobby:function(){
+//				console.log("我喜欢篮球");
+//			}
+//		}
+		
+//		var obj={
+//			name:"张三",
+//			age:19,
+//			hobby:()=>{
+//				console.log("我喜欢篮球");
+//			}
+//		}
+//		obj.hobby();
+//		
+//		//特性一  自带return
+//		var f=function(v){
+//			return v;
+//		}
+//		
+////		var f=v=>v;
+//		var f=v=>{
+//			return v;
+//		}
+//		console.log(f(10));
+
+//		var test=function (){
+//			return {name:"张三",age:19};
+//		}
+//		var test=()=>({name:"张三",age:19});//同样小括号自带return
+//		console.log(test());
+
+		//this穿透；
+		//es5
+//		var obj={
+//			name:"张三",
+//			fn:function(){
+//				console.log(this);
+//			}
+//		}
+		var obj={
+			name:"张三",
+			fn:()=>{
+				console.log(this	);
+			}
+		}
+		obj.fn();
+		
+//		function Person(){
+//			//this指向实例化对象本身
+//			var _this=this;
+//			this.num=10;
+//			this.timer=setInterval(function(){
+//				//this指向window；
+//				console.log(this.num);
+//			},1000);
+//		}
+//		function Person(){
+//			//this指向实例化对象本身
+//			
+//			this.num=10;
+//			this.timer=setInterval(()=>{
+//				//this穿透，本身没有this,共享上层的this
+//				console.log(this.num);
+//			},1000);
+//		}
+//		new Person();
+
+		//es6
+		var obj={
+			name:"张三",
+			hobby(){
+				console.log("hobby");
+			}
+		}
+		obj.hobby();
+		
+	</script>
+</html>

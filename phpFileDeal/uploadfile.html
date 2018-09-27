@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上传文件</title>
+	</head>
+	<body>
+		<form action="upload.php" method="post" enctype="multipart/form-data">
+			姓名：<input type="text" name="username" /><br />
+			图像：<input type="file" name="img"  id="myimg" onchange="getImage()"/><br />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		function getImage(){
+			//获取图片对象；
+			var imgObj=document.getElementById("myimg").files[0];
+//			console.log(imgObj);
+			//可以利用fileReader对象将图片对象转换成base64
+			var fileReader=new FileReader();
+			fileReader.readAsDataURL(imgObj);
+			fileReader.onload=function(){
+				console.log(this.result);
+				var img=new Image();
+				img.src=this.result;
+				document.getElementsByTagName("body")[0].appendChild(img);
+			}
+		}
+	</script>
+</html>
